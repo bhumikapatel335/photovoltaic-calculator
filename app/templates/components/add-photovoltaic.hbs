@@ -1,0 +1,90 @@
+{{yield}}
+
+<table>
+
+  <thead>
+    <th>
+      Add Photovoltaic
+    </th>
+  </thead>
+
+  <tr>
+    <td><label>Peak Power:</label></td>
+  </tr>
+
+  <tr>
+    <td>
+      {{input value=peakPower placeholder="Please enter Peak Power value here"}}
+      {{#each errors.peakPower as |error|}}
+        <span class="error-message">{{error.message}}</span>
+      {{/each}}
+    </td>
+  </tr>
+
+  <tr>
+    <td><label>Orientation:</label></td>
+  </tr>
+
+  <tr>
+    <td>
+      <select id="orientation" onchange={{action "setOrientation" value="target.value"}}>
+        <option disabled selected>Select Orientation</option>
+        <option value="north">north</option>
+        <option value="north east">north east</option>
+        <option value="east">east</option>
+        <option value="south east">south east</option>
+        <option value="south">south</option>
+        <option value="south west">south west</option>
+        <option value="west">west</option>
+        <option value="north west">north west</option>
+      </select>
+      {{#each errors.orientation as |error|}}
+        <span class="error-message">{{error.message}}</span>
+      {{/each}}
+    </td>
+  </tr>
+
+  <tr>
+    <td><label>Elevation:</label></td>
+  </tr>
+
+  <tr>
+    <td>
+      <select id="elevation" onchange={{action "setElevation" value="target.value"}}>
+        <option disabled selected>Select Elevation</option>
+        <option value="30">30</option>
+        <option value="45">45</option>
+        <option value="60">60</option>
+        <option value="0">horizontal(0)</option>
+        <option value="90">vertical(90)</option>
+      </select>
+      {{#each errors.elevation as |error|}}
+        <span class="error-message">{{error.message}}</span>
+      {{/each}}
+    </td>
+  </tr>
+
+  <tr>
+    <td><label>Overshading:</label></td>
+  </tr>
+
+  <tr>
+    <td>
+      <select id="overshading" onchange={{action "setOvershading" value="target.value"}}>
+        <option disabled selected>Select Overshading</option>
+        <option value="little or none">little or none</option>
+        <option value="modest">modest</option>
+        <option value="significant">significant</option>
+        <option value="heavy">heavy</option>
+      </select>
+      {{#each errors.overshading as |error|}}
+        <span class="error-message">{{error.message}}</span>
+      {{/each}}
+    </td>
+  </tr>
+
+  <tr>
+    <td><button class="button" {{action 'addPhotovoltaic'}}> Add </button></td>
+  </tr>
+
+</table>
