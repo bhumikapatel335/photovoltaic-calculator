@@ -8,6 +8,7 @@ export default Ember.Object.extend({
     var eastOrWest = new Array(1.44, -2.36, 1.07, -0.514, 1.89, -1.64, -0.542, -0.757, 0.604);
     var southeastOrWest = new Array(-2.95, 2.89, 1.17, 5.67, -3.54, -4.28, -2.72, -0.25, 3.07);
     var south = new Array(-0.66, -0.106, 2.93, 3.63, -0.374, -7.4, -2.71, -0.991, 4.59);
+
     constantName.forEach(function(constant, index) {
       store.createRecord('kconstant', {
         orientationType: 'north',

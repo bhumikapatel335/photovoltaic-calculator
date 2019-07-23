@@ -11,17 +11,14 @@ export default Ember.Component.extend({
   actions: {
     setOrientation: function(selected) {
       this.set('selectedOrientation', selected);
-      console.log('Selected orientations is : ' + this.get('selectedOrientation'));
     },
 
     setElevation: function(selected) {
       this.set('selectedElevation', selected);
-      console.log('Selected elevation is : ' + this.get('selectedElevation'));
     },
 
     setOvershading: function(selected) {
       this.set('selectedOvershading', selected);
-      console.log('Selected overshading is : ' + this.get('selectedOvershading'));
     },
 
     addPhotovoltaic: function() {
@@ -29,6 +26,7 @@ export default Ember.Component.extend({
       var orientation = this.get('selectedOrientation');
       var elevation = this.get('selectedElevation');
       var overshading = this.get('selectedOvershading');
+
       if (this.validateInput(peakPower, orientation, elevation, overshading)) {
 
         // Send action to controller
@@ -42,10 +40,6 @@ export default Ember.Component.extend({
 
   //validate all the input fields
   validateInput: function(peakPower, orientation, elevation, overshading) {
-
-    console.log('validating inputs');
-
-    console.log('Inputs are : ' + peakPower + ',' + orientation + ',' + elevation + ',' + overshading);
 
     this.set('errors', DS.Errors.create());
 
@@ -74,6 +68,7 @@ export default Ember.Component.extend({
     document.getElementById("orientation").selectedIndex = 0;
     document.getElementById("elevation").selectedIndex = 0;
     document.getElementById("overshading").selectedIndex = 0;
+
     this.setProperties({
       peakPower: '',
       selectedOrientation: null,

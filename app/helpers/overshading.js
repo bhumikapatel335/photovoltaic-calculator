@@ -12,6 +12,7 @@ export default Ember.Object.extend({
       });
     });
   },
+
   getOvershadingFactor: function(overshading, store) {
     var allovershading = store.peekAll('overshading');
     var filterOvershanding = allovershading.filterBy('overshadingType', overshading);
